@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import dotenv from dotenv
 
+dotenv.config()
 import XSvg from "../../../components/svgs/X";
-import axiosInstance from '../../../utils/axios/axiosInstance';
+// import axiosInstance from '../../../utils/axios/axiosInstance';
 // frontend\src\utils\axios\axiosInstance.js
 import { MdOutlineMail } from "react-icons/md";
 // frontend\src\pages\auth\signup\SignUpPage.jsx
@@ -24,8 +26,9 @@ const SignUpPage = () => {
 
 	const { mutate, isError, isPending, error } = useMutation({
 		mutationFn: async ({ email, username, fullName, password }) => {
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/signup`;
 			try {
-				const res = await fetch("/api/auth/signup", {
+				const res = await fetch(apiUrl, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
