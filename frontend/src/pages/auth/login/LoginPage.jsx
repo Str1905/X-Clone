@@ -31,9 +31,9 @@ const LoginPage = () => {
 					},
 					body: JSON.stringify({ username, password }),
 				});
-				console.log("this res",res);
+				// console.log("this res",res);
 				const data = await res.json();
-				console.log(data)
+				// console.log(data)
 				if(data.error) {throw new Error(data.error)}
 				// if (!res.ok) {
 				// 	throw new Error(data.error || "Something went wrong");

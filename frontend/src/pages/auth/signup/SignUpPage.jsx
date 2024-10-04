@@ -40,10 +40,10 @@ const SignUpPage = () => {
 				//   });
 				const data = await res.json();
 				if (!res.ok) throw new Error(data.error || "Failed to create account");
-				console.log(data);
+				// console.log(data);
 				return data;
 			} catch (error) {
-				console.error(error);
+				// console.error(error);
 				throw error;
 			}
 		},
