@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import dotenv from dotenv
+// import dotenv from dotenv
 
-dotenv.config()
+// dotenv.config()
 import XSvg from "../../../components/svgs/X";
 // import axiosInstance from '../../../utils/axios/axiosInstance';
 // frontend\src\utils\axios\axiosInstance.js
