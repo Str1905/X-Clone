@@ -22,8 +22,9 @@ const LoginPage = () => {
 		error,
 	} = useMutation({
 		mutationFn: async ({ username, password }) => {
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/login`;
 			try {
-				const res = await fetch("/api/auth/login", {
+				const res = await fetch(apiUrl, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
