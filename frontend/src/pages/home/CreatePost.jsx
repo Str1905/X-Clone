@@ -20,8 +20,9 @@ const CreatePost = () => {
 		error,
 	} = useMutation({
 		mutationFn: async ({ text, img }) => {
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/posts/create`;
 			try {
-				const res = await fetch("/api/posts/create", {
+				const res = await fetch(apiUrl, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

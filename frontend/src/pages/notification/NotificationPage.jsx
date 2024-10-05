@@ -13,8 +13,9 @@ const NotificationPage = () => {
 	const { data: notifications, isLoading } = useQuery({
 		queryKey: ["notifications"],
 		queryFn: async () => {
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/notifications`;
 			try {
-				const res = await fetch("/api/notifications");
+				const res = await fetch(apiUrl);
 				const data = await res.json();
 				if (!res.ok) throw new Error(data.error || "Something went wrong");
 				return data;

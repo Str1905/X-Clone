@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// import dotenv from dotenv
 
-// dotenv.config()
 import XSvg from "../../../components/svgs/X";
 // import axiosInstance from '../../../utils/axios/axiosInstance';
 // frontend\src\utils\axios\axiosInstance.js
@@ -13,7 +11,9 @@ import { MdPassword } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+// import dotenv from "dotenv";
 
+// dotenv.config();
 const SignUpPage = () => {
 	const [formData, setFormData] = useState({
 		email: "",
@@ -26,9 +26,9 @@ const SignUpPage = () => {
 
 	const { mutate, isError, isPending, error } = useMutation({
 		mutationFn: async ({ email, username, fullName, password }) => {
-			// const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/signup`;
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/signup`;
 			try {
-				const res = await fetch("/api/auth/signup", {
+				const res = await fetch(apiUrl, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

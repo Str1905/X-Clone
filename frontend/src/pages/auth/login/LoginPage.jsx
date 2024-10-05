@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import dotenv from dotenv
 
-// dotenv.config()
 import XSvg from "../../../components/svgs/X";
 
 import { MdOutlineMail } from "react-icons/md";
 import { MdPassword } from "react-icons/md";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import dotenv from "dotenv";
 
+// dotenv.config();
 const LoginPage = () => {
 	const [formData, setFormData] = useState({
 		username: "",
@@ -26,6 +26,7 @@ const LoginPage = () => {
 		mutationFn: async ({ username, password }) => {
 			// const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/login`;
 			try {
+				// console.log(apiUrl)
 				const res = await fetch("/api/auth/login", {
 					method: "POST",
 					headers: {
@@ -34,7 +35,7 @@ const LoginPage = () => {
 					},
 					body: JSON.stringify({ username, password }),
 				});
-				// console.log("this res",res);
+				console.log("this res",res);
 				const data = await res.json();
 				// console.log(data)
 				if(data.error) {throw new Error(data.error)}
