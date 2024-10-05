@@ -26,12 +26,13 @@ const SignUpPage = () => {
 
 	const { mutate, isError, isPending, error } = useMutation({
 		mutationFn: async ({ email, username, fullName, password }) => {
-			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/signup`;
+			// const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/signup`;
 			try {
-				const res = await fetch(apiUrl, {
+				const res = await fetch("/api/auth/signup", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						// 'Authorization': `Bearer ${token}`
 					},
 					body: JSON.stringify({ email, username, fullName, password }),
 				});

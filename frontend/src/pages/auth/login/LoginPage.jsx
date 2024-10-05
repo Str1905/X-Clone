@@ -24,12 +24,13 @@ const LoginPage = () => {
 		error,
 	} = useMutation({
 		mutationFn: async ({ username, password }) => {
-			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/login`;
+			// const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/login`;
 			try {
-				const res = await fetch(apiUrl, {
+				const res = await fetch("/api/auth/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						// 'Authorization': `Bearer ${token}`
 					},
 					body: JSON.stringify({ username, password }),
 				});
