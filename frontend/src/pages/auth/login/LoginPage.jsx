@@ -26,7 +26,7 @@ const LoginPage = () => {
 		mutationFn: async ({ username, password }) => {
 			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/auth/login`;
 			try {
-				console.log(apiUrl)
+				// console.log(apiUrl)
 				const res = await fetch(apiUrl, {
 					method: "POST",
 					headers: {
@@ -37,9 +37,9 @@ const LoginPage = () => {
 					credentials: "include",
 					body: JSON.stringify({ username, password }),
 				});
-				console.log("this res",res);
+				// console.log("this res",res);
 				const data = await res.json();
-				console.log(data)
+				// console.log(data)
 				if(data.error) {throw new Error(data.error)}
 				// if (!res.ok) {
 				// 	throw new Error(data.error || "Something went wrong");
