@@ -95,7 +95,7 @@ const SignUpPage = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData);
+		// console.log(formData);
 	};
 
 	const handleInputChange = (e) => {
@@ -205,7 +205,7 @@ const LoginPage = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData);
+		// console.log(formData);
 	};
 
 	const handleInputChange = (e) => {
