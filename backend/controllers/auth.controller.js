@@ -1,7 +1,8 @@
 import { generateTokenAndSetCookie } from "../lib/utils/generateToken.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-
+import dotenv from "dotenv";
+dotenv.config();
 export const signup = async (req, res) => {
 	try {
 		const { fullName, username, email, password } = req.body;
@@ -70,7 +71,7 @@ export const login = async (req, res) => {
 		}
 
 		generateTokenAndSetCookie(user._id, res);
-		// res.setHeader('Access-Control-Allow-Origin', '*');
+		res.setHeader('Access-Control-Allow-Origin', process.env.frontend_URL);
 		res.status(200).json({
 			_id: user._id,
 			fullName: user.fullName,
