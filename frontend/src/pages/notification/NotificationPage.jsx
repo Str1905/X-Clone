@@ -15,7 +15,9 @@ const NotificationPage = () => {
 		queryFn: async () => {
 			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/notifications`;
 			try {
-				const res = await fetch(apiUrl);
+				const res = await fetch(apiUrl,{
+					credentials:'include'
+				});
 				const data = await res.json();
 				if (!res.ok) throw new Error(data.error || "Something went wrong");
 				return data;

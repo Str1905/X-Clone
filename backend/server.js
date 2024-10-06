@@ -10,6 +10,7 @@ import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
 import notificationRoutes from "./routes/notification.route.js";
 import connectMongoDB from "./db/connectMongoDB.js";
+import process from "process";
 
 dotenv.config();
  
@@ -21,7 +22,10 @@ cloudinary.config({
 });
 
 const app = express();
-app.use(cors({ origin: "*",credentials: true }));
+app.use(cors({ 
+	origin: process.env.frontend_URL,
+	credentials: true
+}));
 const PORT = process.env.PORT || 8000;
 const __dirname = path.resolve();
 

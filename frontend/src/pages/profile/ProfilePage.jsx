@@ -38,10 +38,14 @@ const ProfilePage = () => {
 	} = useQuery({
 		queryKey: ["userProfile"],
 		queryFn: async () => {
-			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/users/profile/${username}`;
+			// const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/users/profile/${username}`;
 			try {
-				const res = await fetch(apiUrl);
+				const res = await fetch(`/api/users/profile/${username}`,{
+					// credentials:'include'
+				});
+				console.log(res)
 				const data = await res.json();
+				// console.log(data)
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}

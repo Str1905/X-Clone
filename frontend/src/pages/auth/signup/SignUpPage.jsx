@@ -34,6 +34,7 @@ const SignUpPage = () => {
 						"Content-Type": "application/json",
 						// 'Authorization': `Bearer ${token}`
 					},
+					credentials:'include',
 					body: JSON.stringify({ email, username, fullName, password }),
 				});
 				// const res = await axiosInstance.post("/api/auth/signup", {
