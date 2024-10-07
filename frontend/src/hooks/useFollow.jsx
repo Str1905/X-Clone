@@ -6,11 +6,13 @@ const useFollow = () => {
 
 	const { mutate: follow, isPending } = useMutation({
 		mutationFn: async (userId) => {
+			const apiUrl = `${import.meta.env.VITE_Backend_URL}/api/users/follow/${userId}`;
 			try {
-				const res = await fetch(`/api/users/follow/${userId}`, {
+				const res = await fetch(apiUrl, {
 					method: "POST",
+					credentials:'include',
 				});
-
+				
 				const data = await res.json();
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong!");
